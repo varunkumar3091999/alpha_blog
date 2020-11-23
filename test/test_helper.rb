@@ -9,10 +9,7 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
-  # Add more helper methods to be used by all tests here...
-  unless Webpacker.compiler.fresh?
-    puts "== Webpack compiling =="
-    Webpacker.compiler.compile
-    puts "== Webpack compiled =="
+   def sign_in_as(user)
+    post login_path, params: { session: { email: user.email, password: "password"} }
   end
 end

@@ -76,11 +76,11 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :description)
+      params.require(:article).permit(:title, :description, category_ids: [])
     end
 
     def require_same_user
-      if current_user = @article.user
+      if current_user != @article.user
         flash[:alert] = "You can only Edit or Delete your own acticles"
         redirect_to @article
       end

@@ -19,7 +19,11 @@
     </div>
 
     <div class="mb-3">
-      <%= link_to '[ Cancel and return to Articles Listing ]', articles_path %>
+    <% if @category.id %>
+        <%= link_to '[ Cancel and return to Category ]', category_path(@category) %>
+    <% else %>
+        <%= link_to '[ Cancel and return to Categories listing ]', categories_path %>
+    <% end %>
     </div>
   </div>
 </div>

@@ -19,6 +19,13 @@
           </div>
         </div>
 
+        <div class="form-group row">
+          <%= form.label :category, class: "col-2 col-form-label text-light" %>
+          <div class="col-10 shadow rounded">
+          <%= form.collection_select(:category_ids, Category.all, :id, :name, {prompt: "Please select categories(Can be empty)"}, {multiple: true, class: "custom-select shadow roundedl"}) %>
+          </div>
+        </div>
+
         <div class="form-group row justify-content-center">
           <%= form.submit class: "btn btn-outline-light btn-lg"%>
         </div>
